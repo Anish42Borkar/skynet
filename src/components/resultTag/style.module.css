@@ -1,0 +1,32 @@
+.tag {
+  width: 350px;
+  height: 190px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.tag .innerTag {
+  width: 315px;
+  height: 124px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.tag .innerTag::after {
+  content: "";
+  position: absolute;
+  width: calc(100%);
+  height: 20px;
+  bottom: -5px;
+  border-radius: 0px 0px 10px 10px;
+  z-index: -1;
+  @apply bg-purple-1;
+}
+
+.tag .innerTag .title {
+  width: 100%;
+  height: 50px;
+}
