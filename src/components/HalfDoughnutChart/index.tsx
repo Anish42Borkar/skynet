@@ -1,13 +1,13 @@
-import React, { ReactNode } from "react";
-import { Doughnut } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
   ArcElement,
-  Tooltip,
-  Legend,
-  ChartOptions,
   ChartData,
+  Chart as ChartJS,
+  ChartOptions,
+  Legend,
+  Tooltip,
 } from "chart.js";
+import { ReactNode } from "react";
+import { Doughnut } from "react-chartjs-2";
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);

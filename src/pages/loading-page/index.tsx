@@ -16,7 +16,7 @@ let timer: number;
 
 const LoadingPage = () => {
   const [status, setStatus] = useState(0);
-  const [progress, setProgress] = useState<number>(0);
+  // const [progress, setProgress] = useState<number>(0);
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -39,7 +39,7 @@ const LoadingPage = () => {
   };
 
   const fetchData = async () => {
-    setProgress(0); // Reset progress before starting
+    // setProgress(0); // Reset progress before starting
     let siteData = false,
       imageData = false;
 
@@ -56,14 +56,6 @@ const LoadingPage = () => {
           "https://freeaccessibilitychecker.skynettechnologies.com/api/check-page-compliance-new",
           formData,
           {
-            onUploadProgress: (progressEvent) => {
-              const { loaded, total } = progressEvent;
-              if (total) {
-                const percentCompleted =
-                  progressEvent.loaded / progressEvent.total!;
-                setProgress(percentCompleted); // Update progress during upload
-              }
-            },
             headers: {
               "Content-Type": "multipart/form-data", // Required for FormData
               "Content-Length": dataSize.toString(), // Manually add the Content-Length header

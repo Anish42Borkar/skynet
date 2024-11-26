@@ -11,7 +11,7 @@ const useResponseDataStore = create<UseResponseDataStoreT>()(
   persist(
     (set) => ({
       data: null,
-      setData: (data) => set((state) => ({ data: data })),
+      setData: (data) => set(() => ({ data: data })),
     }),
     { name: "persistRespState" }
   )

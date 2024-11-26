@@ -11,7 +11,7 @@ const useSiteImageDetailsStore = create<UseSiteImageDetailsStoreT>()(
   persist(
     (set) => ({
       imgData: null,
-      setImgData: (data) => set((state) => ({ imgData: data })),
+      setImgData: (data) => set(() => ({ imgData: data })),
     }),
     { name: "persistImgRespState" }
   )
