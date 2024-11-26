@@ -88,11 +88,11 @@ const ResultsPage = () => {
 
   return (
     <div className="w-full relative min-h-screen">
-      <div className="w-full h-[90px] px-10 md:px-32 border-b border-purple-1 flex justify-between items-center">
+      <div className="w-full h-[90px] px-10 md:px-24 border-b border-purple-1 flex justify-between items-center">
         <LogoIcon width={310} height={72} />
         <LanguageDropdown />
       </div>
-      <div className="w-full h-[90px] px-10 md:px-32 flex justify-between items-center bg-cream-white">
+      <div className="w-full h-[90px] px-10 md:px-24 flex flex-wrap justify-between items-center bg-cream-white">
         <p className="font-bold text-xl">
           Accessibility report for{" "}
           <span className="text-purple-1 cursor-pointer">
@@ -106,8 +106,8 @@ const ResultsPage = () => {
         </p>
       </div>
 
-      <div className="px-10 md:px-32 bg-cream-white">
-        <div className="bg-purple-2 h-[60px] w-full rounded-lg flex items-center gap-5 px-4">
+      <div className="px-10 md:px-24 bg-cream-white">
+        <div className="bg-purple-2 md:h-[60px] w-full rounded-lg flex items-center gap-5 px-4">
           <p className="font-medium text-lg text-white ">
             No accessibility overlay detected, Find out how the All in One
             Accessibility would make positive impact on your website.
@@ -120,8 +120,8 @@ const ResultsPage = () => {
         </div>
       </div>
 
-      <div className="px-10 md:px-32 pb-20 pt-10 bg-cream-white">
-        <div className="flex justify-between">
+      <div className="px-10 md:px-24 pb-20 pt-10 bg-cream-white">
+        <div className="flex flex-wrap justify-between">
           <div className="w-[350px] h-[300px] bg-white">
             <img
               className="w-full h-full object-contain"
@@ -146,12 +146,12 @@ const ResultsPage = () => {
         </div>
       </div>
 
-      <div className="py-10 px-10 md:px-32">
+      <div className="py-10 px-10 md:px-24">
         <p className="text-center font-bold text-2xl">
           Click on the categories to check the detailed information.
         </p>
 
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-4">
           {Object.entries(results).map(([key, values]) => (
             <ResultTag
               title={key}
@@ -162,7 +162,7 @@ const ResultsPage = () => {
         </div>
       </div>
 
-      <div className="w-full px-10 md:px-32 bg-purple-1 text-white bottom-0 left-0 flex justify-between items-center p-5">
+      <div className="w-full px-10 md:px-24 bg-purple-1 text-white bottom-0 left-0 flex justify-between items-center p-5">
         <div className="flex items-center gap-5 ">
           <p className="font-bold ">Privacy Policy</p>
           <div className="w-2 h-2 bg-white rounded-full"></div>

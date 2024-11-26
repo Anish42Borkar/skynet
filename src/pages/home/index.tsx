@@ -68,7 +68,7 @@ const HomePage = () => {
   return (
     <div className={`${styles.home} `}>
       <div className={`${styles.hero} `}>
-        <div className="scale-75 flex justify-center items-center h-full gap-5">
+        <div className="scale-75 flex flex-wrap md:flex-nowrap justify-center items-center h-full gap-5">
           <div className="flex gap-2 flex-col translate-y-10">
             <ChartComp
               middleElement={Element1}
@@ -91,31 +91,33 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="p-5 relative ">
+      <div className="p-5 relative flex flex-col justify-between ">
         <div className="flex justify-between items-center">
           <LogoIcon width={410} height={72} />
           <LanguageDropdown />
         </div>
 
-        <p className="font-bold text-[32px] text-center mt-40">
-          Our free <span className="text-purple-1">ADA</span> and{" "}
-          <span className="text-purple-1">WCAG compliance</span> checker
-          identifies web accessibility issues
-        </p>
-        <div className="px-16 mt-5">
-          <ConnectedInputSelect onChange={handleInputChange} />
+        <div className="">
+          <p className="font-bold text-[32px] text-center mt-10">
+            Our free <span className="text-purple-1">ADA</span> and{" "}
+            <span className="text-purple-1">WCAG compliance</span> checker
+            identifies web accessibility issues
+          </p>
+          <div className="px-16 mt-5">
+            <ConnectedInputSelect onChange={handleInputChange} />
+          </div>
+
+          <div className="flex justify-center mt-5">
+            <button
+              onClick={onClick}
+              className="bg-purple-1 w-[143px] text-white font-medium text-lg py-2 px-4 rounded-lg"
+            >
+              Start Scan
+            </button>
+          </div>
         </div>
 
-        <div className="flex justify-center mt-5">
-          <button
-            onClick={onClick}
-            className="bg-purple-1 w-[143px] text-white font-medium text-lg py-2 px-4 rounded-lg"
-          >
-            Start Scan
-          </button>
-        </div>
-
-        <div className="w-full absolute bottom-0 left-0 flex justify-between items-center p-5">
+        <div className="w-full  flex justify-between items-center p-5">
           <div className="flex items-center gap-5 ">
             <p className="font-bold ">Privacy Policy</p>
             <div className="w-2 h-2 bg-purple-1 rounded-full"></div>
