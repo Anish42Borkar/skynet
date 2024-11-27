@@ -69,7 +69,7 @@ const HalfDoughnutChart = ({
   };
 
   return (
-    <div className="flex flex-col items-center w-full ">
+    <div className="flex flex-col items-center w-full relative ">
       <div style={{ width: "90%", height: "170px" }} className="relative">
         <Doughnut data={data ?? []} options={options} />
         {middleElement}

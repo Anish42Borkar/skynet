@@ -87,82 +87,85 @@ const ResultsPage = () => {
   }, []);
 
   return (
-    <div className="w-full relative min-h-screen">
-      <div className="w-full h-[90px] px-10 md:px-24 border-b border-purple-1 flex justify-between items-center">
-        <LogoIcon width={310} height={72} />
-        <LanguageDropdown />
-      </div>
-      <div className="w-full h-[90px] px-10 md:px-24 flex flex-wrap justify-between items-center bg-cream-white">
-        <p className="font-bold text-xl">
-          Accessibility report for{" "}
-          <span className="text-purple-1 cursor-pointer">
-            {" "}
-            https://www.ryansoftwares.com/{" "}
-          </span>
-        </p>
-        <p className="text-purple-1 text-lg font-medium flex items-center gap-2 cursor-pointer">
-          <PdfIcon width={21} height={26} />
-          Download Free Accessibility Report
-        </p>
-      </div>
-
-      <div className="px-10 md:px-24 bg-cream-white">
-        <div className="bg-purple-2 md:h-[60px] w-full rounded-lg flex items-center gap-5 px-4">
-          <p className="font-medium text-lg text-white ">
-            No accessibility overlay detected, Find out how the All in One
-            Accessibility would make positive impact on your website.
-          </p>
-
-          <label className="inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" className="sr-only peer" />
-            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-          </label>
+    <div className="w-full relative min-h-screen container mx-auto flex flex-col justify-between">
+      <div className="">
+        <div className="w-full h-[90px] px-10  border-b border-purple-1 flex justify-between items-center">
+          <LogoIcon width={310} height={72} />
+          <LanguageDropdown />
         </div>
-      </div>
+        <div className="w-full h-[90px] px-10  flex flex-wrap justify-between items-center bg-cream-white">
+          <p className="font-bold text-xl">
+            Accessibility report for{" "}
+            <span className="text-purple-1 cursor-pointer">
+              {" "}
+              https://www.ryansoftwares.com/{" "}
+            </span>
+          </p>
+          <p className="text-purple-1 text-lg font-medium flex items-center gap-2 cursor-pointer">
+            <PdfIcon width={21} height={26} />
+            Download Free Accessibility Report
+          </p>
+        </div>
 
-      <div className="px-10 md:px-24 pb-20 pt-10 bg-cream-white">
-        <div className="flex flex-wrap justify-between">
-          <div className="w-[350px] h-[300px] bg-white">
-            <img
-              className="w-full h-full object-contain"
-              src={imgData?.page_image || NoImage}
-              alt=""
-              srcSet=""
+        <div className="px-10  bg-cream-white">
+          <div className="bg-purple-2 md:h-[60px] w-full rounded-lg flex items-center gap-5 px-4">
+            <p className="font-medium text-lg text-white ">
+              No accessibility overlay detected, Find out how the All in One
+              Accessibility would make positive impact on your website.
+            </p>
+
+            <label className="inline-flex items-center cursor-pointer">
+              <input type="checkbox" value="" className="sr-only peer" />
+              <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            </label>
+          </div>
+        </div>
+
+        <div className="px-10  pb-20 pt-10 bg-cream-white">
+          <div className="flex flex-wrap justify-between">
+            <div className="w-[420px] h-[300px] bg-white">
+              <img
+                className="w-full h-full object-contain"
+                src={imgData?.page_image || NoImage}
+                alt=""
+                srcSet=""
+              />
+            </div>
+            <ChartComp
+              width="420px"
+              middleElement={Element2}
+              showLegend={false}
+              data={data2}
+              title="Accessibility Score"
+              description={description1}
+            />
+            <ChartComp
+              width="420px"
+              middleElement={Element}
+              data={data2}
+              title="WCAG 2.1/2.2"
+              description={description2}
             />
           </div>
-          <ChartComp
-            middleElement={Element2}
-            showLegend={false}
-            data={data2}
-            title="Accessibility Score"
-            description={description1}
-          />
-          <ChartComp
-            middleElement={Element}
-            data={data2}
-            title="WCAG 2.1/2.2"
-            description={description2}
-          />
+        </div>
+
+        <div className="py-10 px-10 ">
+          <p className="text-center font-bold text-2xl">
+            Click on the categories to check the detailed information.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            {Object.entries(results).map(([key, values]) => (
+              <ResultTag
+                title={key}
+                failed={String(values.failed)}
+                passed={String(values.passed)}
+              />
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className="py-10 px-10 md:px-24">
-        <p className="text-center font-bold text-2xl">
-          Click on the categories to check the detailed information.
-        </p>
-
-        <div className="flex flex-wrap gap-4">
-          {Object.entries(results).map(([key, values]) => (
-            <ResultTag
-              title={key}
-              failed={String(values.failed)}
-              passed={String(values.passed)}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="w-full px-10 md:px-24 bg-purple-1 text-white bottom-0 left-0 flex justify-between items-center p-5">
+      <div className="w-full px-10  bg-purple-1 text-white bottom-0 left-0 flex justify-between items-center p-5">
         <div className="flex items-center gap-5 ">
           <p className="font-bold ">Privacy Policy</p>
           <div className="w-2 h-2 bg-white rounded-full"></div>

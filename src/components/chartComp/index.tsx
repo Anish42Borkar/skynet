@@ -7,6 +7,7 @@ type ChartCompProps = {
   showLegend?: boolean;
   middleElement?: ReactNode;
   description?: ReactNode;
+  width?: string;
 };
 
 const ChartComp = ({
@@ -15,9 +16,15 @@ const ChartComp = ({
   showLegend = true,
   middleElement,
   description,
+  width = "350px",
 }: ChartCompProps) => {
   return (
-    <div className="w-[350px] min-h-[275px] h-fit rounded-[10px] bg-white flex flex-col items-center mt-1">
+    <div
+      style={{
+        width: width,
+      }}
+      className="w-[350px] min-h-[275px] h-fit rounded-[10px] bg-white flex flex-col items-center mt-1"
+    >
       <p className="font-extrabold text-xl mt-5">{title}</p>
       <div className="w-full mt-5 flex justify-center">
         <HalfDoughnutChart
